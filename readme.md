@@ -1,5 +1,4 @@
 ## Todo List
- - Todo CRUD
+ - ~~Todo CRUD~~ 
  - User Login
  - Task User Relationship
- - 
