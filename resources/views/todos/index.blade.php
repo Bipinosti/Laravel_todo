@@ -38,7 +38,7 @@
         @endif
 
         <div class="row" style='margin-top: 10px; margin-bottom: 10px;'>
-            <form action="{{ route('tasks.store') }}" method='POST'>
+            <form action="{{ route('todos.store') }}" method='POST'>
                 {{ csrf_field() }}
 
                 <div class="col-md-9">
@@ -66,9 +66,9 @@
                     <tr>
                         <th>{{ $storedTask->id }}</th>
                         <td>{{ $storedTask->name }}</td>
-                        <td><a href="{{ route('tasks.edit', ['tasks'=>$storedTask->id]) }}" class='btn btn-default'>Edit</a></td>
+                        <td><a href="{{ route('todos.edit', ['tasks'=>$storedTask->id]) }}" class='btn btn-default'>Edit</a></td>
                         <td>
-                            <form action="{{ route('tasks.destroy', ['tasks'=>$storedTask->id]) }}" method='POST'>
+                            <form action="{{ route('todos.destroy', ['tasks'=>$storedTask->id]) }}" method='POST'>
                                 {{ csrf_field() }}
                                 <input type="hidden" name='_method' value='DELETE'>
 
