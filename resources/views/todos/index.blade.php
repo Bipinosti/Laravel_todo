@@ -51,8 +51,8 @@
             </form>
         </div>
 
-        {{-- display stored tasks --}}
-        @if (count($storedTasks) > 0)
+         display stored tasks
+        @if (count($todos) > 0)
             <table class="table">
                 <thead>
                 <th>Task #</th>
@@ -62,13 +62,13 @@
                 </thead>
 
                 <tbody>
-                @foreach ($storedTasks as $storedTask)
+                @foreach ($todos as $todo)
                     <tr>
-                        <th>{{ $storedTask->id }}</th>
-                        <td>{{ $storedTask->name }}</td>
-                        <td><a href="{{ route('todos.edit', ['tasks'=>$storedTask->id]) }}" class='btn btn-default'>Edit</a></td>
+                        <th>{{ $todo->id }}</th>
+                        <td>{{ $todo->name }}</td>
+                        <td><a href="{{ route('todos.edit', ['tasks'=> $todo->id]) }}" class='btn btn-default'>Edit</a></td>
                         <td>
-                            <form action="{{ route('todos.destroy', ['tasks'=>$storedTask->id]) }}" method='POST'>
+                            <form action="{{ route('todos.destroy', ['tasks'=> $todo->id]) }}" method='POST'>
                                 {{ csrf_field() }}
                                 <input type="hidden" name='_method' value='DELETE'>
 
@@ -82,7 +82,7 @@
         @endif
 
         <div class="row text-center">
-            {{ $storedTasks->links() }}
+            {{ $todos->links() }}
         </div>
 
     </div>

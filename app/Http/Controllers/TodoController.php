@@ -3,16 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Todo;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
 class TodoController extends Controller
 {
 
+    // this wil change
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        $tasks = Todo::orderBy('id','desc')->paginate(5);
-        return view('todos.index')->with('storedTasks', $tasks);
+        return view('todos.index', [
+            'todos' => auth()->user()->todos()->paginate(5)
+        ]);
     }
 
     public function create()
@@ -25,9 +33,12 @@ class TodoController extends Controller
         $this->validate($request, [
             'newTaskName' => 'required|min:5|max:255',
         ]);
-        $task = new Todo;
-        $task->name = $request->newTaskName;
-        $task->save();
+
+        Todo::create([
+            'name' => $request->newTaskName,
+            'user_id' => auth()->user()->id
+        ]);
+
         Session::flash('success', 'New task has been succesfully added!');
         return redirect()->route('todos.index');
     }
