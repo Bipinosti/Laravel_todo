@@ -38,7 +38,7 @@
         @endif
 
         <div class="row">
-            <form action="{{ route('tasks.update', [$taskUnderEdit->id]) }}" method='POST'>
+            <form action="{{ route('todos.update', [$taskUnderEdit->id]) }}" method='POST'>
                 {{ csrf_field() }}
                 <input type="hidden" name='_method' value='PUT'>
 

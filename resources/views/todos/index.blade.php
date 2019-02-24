@@ -3,11 +3,17 @@
 <head>
     <meta charset="UTF-8">
 
+    <link href="{{asset('css/style.css')}}" rel="stylesheet">
+
     {{-- bootstrap css CDN --}}
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     {{-- bootstrap js CDN --}}
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
     <title>Todo List App</title>
 </head>
@@ -51,7 +57,7 @@
             </form>
         </div>
 
-         display stored tasks
+         {{--display stored tasks--}}
         @if (count($todos) > 0)
             <table class="table">
                 <thead>
@@ -59,6 +65,7 @@
                 <th>Name</th>
                 <th>Edit</th>
                 <th>Delete</th>
+                <th>Check</th>
                 </thead>
 
                 <tbody>
@@ -74,7 +81,22 @@
 
                                 <input type="submit" class='btn btn-danger' value='Delete'>
                             </form>
+                        <td>
+                            <div class="[ form-group ]">
+                                    <input type="checkbox" name="fancy-checkbox-success[]" id="fancy-checkbox-success" autocomplete="off" />
+                                <div class="[ btn-group ]">
+                                    <label for="fancy-checkbox-success" class="[ btn btn-success ]">
+                                          <span class="[ glyphicon glyphicon-ok ]"></span>
+                                           <span> </span>
+                                    </label>
+                                     <label for="fancy-checkbox-success" class="[ btn btn-default active ]">
+                                          Success Checkbox
+                                     </label>
+
+                                </div>
+                            </div>
                         </td>
+
                     </tr>
                 @endforeach
                 </tbody>
