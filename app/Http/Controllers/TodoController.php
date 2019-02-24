@@ -36,6 +36,7 @@ class TodoController extends Controller
 
         Todo::create([
             'name' => $request->newTaskName,
+            'checked'=>$request->checked,
             'user_id' => auth()->user()->id
         ]);
 
