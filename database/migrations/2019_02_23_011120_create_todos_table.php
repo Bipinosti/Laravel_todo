@@ -17,10 +17,9 @@ class CreateTodosTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->boolean('checked');
-            $table->unsignedInteger('user_id');
-            $table->foreign('user_id')->reference('id')->on('users');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
-//            $table->foreign('user_id')->reference('id')->on('users');
         });
     }
 
