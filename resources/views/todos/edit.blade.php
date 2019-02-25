@@ -3,6 +3,12 @@
 <head>
     <meta charset="UTF-8">
 
+    <link href="{{asset('css/style.css')}}" rel="stylesheet">
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
     {{-- bootstrap css CDN --}}
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -44,6 +50,25 @@
 
                 <div class="form-group">
                     <input type="text" name='updatedTaskName' class='form-control input-lg' value='{{ $taskUnderEdit->name }}'>
+                </div>
+
+                <div class="form-group">
+                    <td>
+                        <div class="form-group">
+                            <input type="checkbox" name="completed[]" id="completed" autocomplete="off" />
+                            <div class="btn-group">
+                                <label for="completed" class="btn btn-success">
+                                    <span class="glyphicon glyphicon-ok"></span>
+                                    <span> </span>
+                                </label>
+                                <label for="completed" class="btn btn-default active">
+                                    Success fully completed
+                                </label>
+
+                            </div>
+                        </div>
+
+                    </td>
                 </div>
 
                 <div class="form-group">

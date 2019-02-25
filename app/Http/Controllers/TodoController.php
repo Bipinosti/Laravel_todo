@@ -55,6 +55,21 @@ class TodoController extends Controller
         return view('todos.edit')->with('taskUnderEdit', $task);
     }
 
+    public function  checkbox($id)
+    {
+        $task = Todo::find($id);
+        return view('todos.index')->with('checkRecord');
+    }
+
+    public function  updateCheckbox(Request $request, $id)
+    {
+        $task = Todo::find($id);
+        $task->check = $request->updatedCheck;
+        $task->save();
+        return redirect()->route('todos.index');
+    }
+
+
 
     public function update(Request $request, $id)
     {
